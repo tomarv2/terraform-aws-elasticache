@@ -88,6 +88,7 @@ module "redis" {
 
   deploy_redis                 = true
   deploy_redis_parameter_group = true
+  
   security_group_ids           = [module.security_group.security_group_id]
   account_id                   = "123456789012"
   email                        = "demo@demo.com"

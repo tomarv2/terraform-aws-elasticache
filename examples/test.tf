@@ -3,6 +3,7 @@ module "redis" {
 
   deploy_redis                 = true
   deploy_redis_parameter_group = true
+
   security_group_ids           = [module.security_group.security_group_id]
   account_id                   = "755921336062"
   email                        = "varun.tomar@databricks.com"
