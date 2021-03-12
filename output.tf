@@ -1,11 +1,11 @@
 output "elasticache_id" {
-  value = aws_elasticache_cluster.elasticache.id
-}
-
-output "elasticache_snapshot_name" {
-  value = aws_elasticache_cluster.elasticache.snapshot_name
+  value = join("", aws_elasticache_cluster.default.*.id)
 }
 
 output "elasticache_cluster_address" {
-  value = aws_elasticache_cluster.elasticache.cluster_address
+  value = aws_elasticache_cluster.default.*.cluster_address
+}
+
+output "aws_elasticache_parameter_group" {
+  value = join("", aws_elasticache_parameter_group.default.*.name)
 }

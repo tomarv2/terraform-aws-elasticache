@@ -12,12 +12,15 @@ variable "prjid" {
 }
 
 variable "cluster_id" {
-  deafult     = ""
+  default     = null
   description = "(Required) Group identifier. ElastiCache converts this name to lowercase."
 }
 
+variable "account_id" {
+  description = "AWS account id to deploy this resource in"
+}
 variable "node_type" {
-  type        = "string"
+  default     = "cache.t2.micro"
   description = "The compute and memory capacity of the nodes."
 }
 
@@ -27,12 +30,12 @@ variable "cache_nodes" {
 }
 
 variable "parameter_group_name" {
-  type        = "string"
   description = "Name of the parameter group to associate with this cache cluster."
+  default     = null
 }
 
 variable "engine_version" {
-  type        = "string"
+  default     = "5.0.6"
   description = "Version of engine"
 }
 
@@ -41,29 +44,18 @@ variable "port" {
   default     = 6379
 }
 
-variable "subnet_group_name" {
-  type        = "string"
-  description = "Name of the subnet group to be used for the cache cluster."
-}
-
 variable "security_group_ids" {
-  type        = "list"
   description = "One or more VPC security groups associated with the cache cluster."
 }
 
 variable "snapshot_window" {
-  type        = "string"
-  description = "he daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00."
+  default     = ""
+  description = "Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00."
 }
 
 variable "snapshot_retention_limit" {
   description = "Number of days snapshot image will be retained"
   default     = 5
-}
-
-variable "availability_zone" {
-  type        = "string"
-  description = "The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use preferred_availability_zones instead. Default: System chosen Availability Zone."
 }
 
 variable "engine" {
@@ -73,33 +65,77 @@ variable "engine" {
 
 variable "profile_to_use" {
   description = "Getting values from ~/.aws/credentials"
+  default     = "default"
 }
 
 variable "aws_region" {
-  default     = "us-west-2"
-}
-
-variable "tags" {
-  description = "(Optional) A map of tags to assign to the resource."
+  default = "us-west-2"
 }
 
 variable "notification_topic_arn" {
   description = "An Amazon Resource Name (ARN) of an SNS topic to send ElastiCache notifications to. Example: arn:aws:sns:us-east-1:012345678999:my_sns_topic."
+  default     = null
 }
 
 variable "snapshot_arns" {
   description = "A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. Example: arn:aws:s3:::my_bucket/snapshot1.rdb"
+  default     = [""]
 }
 
 variable "apply_immediately" {
   description = "Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is false."
+  default     = true
 }
 
 variable "az_mode" {
-  description = "(Optional, Memcached only) Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are single-az or cross-az, default is single-az. If you want to choose cross-az, num_cache_nodes must be greater than 1."
+  description = "(Memcached only) Specifies whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are single-az or cross-az, default is single-az. If you want to choose cross-az, num_cache_nodes must be greater than 1."
+  default     = null
 }
 
 variable "snapshot_name" {
   default     = ""
   description = "(Optional) The name of a snapshot from which to restore data into the new node group. Changing the snapshot_name forces a new resource."
+}
+
+variable "deploy_redis" {
+  description = "feature flag, true or false"
+  default     = true
+  type        = bool
+}
+
+variable "availability_zone" {
+  default     = null
+  description = "The Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use preferred_availability_zones instead. Default: System chosen Availability Zone. Changing this value will re-create the resource."
+}
+
+variable "deploy_redis_parameter_group" {
+  description = "feature flag, true or false"
+  default     = true
+  type        = bool
+}
+
+variable "cluster_mode_enabled" {
+  type        = bool
+  description = "Flag to enable/disable creation of a native redis cluster. `automatic_failover_enabled` must be set to `true`. Only 1 `cluster_mode` block is allowed"
+  default     = false
+}
+
+
+variable "parameter" {
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default     = []
+  description = "A list of Redis parameters to apply. Note that parameters may differ from one Redis family to another"
+}
+
+variable "parameter_group_family" {
+  default     = "redis5.0"
+  description = "The family of the ElastiCache parameter group."
+}
+
+variable "maintenance_window" {
+  description = "Specifies the weekly time range for when maintenance on the cache cluster is performed. "
+  default     = "mon:10:30-mon:11:30"
 }

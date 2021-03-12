@@ -79,5 +79,5 @@ _testmain.go
 /test/run.out
 /test/times.out
 
-# ignore requried vars file
-**/test_data
+# ignore test file(s)
+**test**

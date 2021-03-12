@@ -1,18 +1,12 @@
 locals {
-  shared_tags  = map(
-      "Name", "${var.teamid}-${var.prjid}",
-      "Owner", var.email,
-      "Team", var.teamid,
-      "Project", var.prjid
+  shared_tags = map(
+    "name", "${var.teamid}-${var.prjid}",
+    "owner", var.email,
+    "team", var.teamid,
+    "project", var.prjid
   )
 }
 
 module "global" {
-  source                      = "./../../../../_base_module/aws"
-}
-
-provider "aws" {
-  region                      = var.aws_region
-  profile                     = var.profile_to_use
-  version                     = "~> 2.61"
+  source = "git::git@github.com:tomarv2/terraform-global.git//aws?ref=v0.0.1"
 }
