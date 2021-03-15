@@ -50,7 +50,7 @@ export TF_AWS_PROFILE=default
 export TF_AWS_BUCKET_REGION=us-west-2
 ```  
 
-- Updated `examples` directory with required values 
+- Updated `examples` directory with required values .
 
 
 - Run and verify the output before deploying:
