@@ -15,7 +15,14 @@
         <img src="https://img.shields.io/twitter/follow/varuntomar2019?style=social&logo=twitter"></a>
 </p>
 
-# Terraform module for AWS [ElastiCache]
+# Terraform module for [AWS Elasticache](https://registry.terraform.io/modules/tomarv2/elasticache/aws/latest)
+
+####
+
+> :arrow_right:  Terraform module for [Azure Cache for Redis](https://registry.terraform.io/modules/tomarv2/redis-cache/azure/latest)
+
+> :arrow_right:  Terraform module for [Google Memorystore](https://registry.terraform.io/modules/tomarv2/memorystore/google/latest)
+
 
 ## Versions
 
@@ -81,7 +88,22 @@ tf -cloud aws destroy
 >
 > For more information refer to [Terraform documentation](https://www.terraform.io/docs/language/values/variables.html)
 
-##### ElastiCache with Security Group
+##### Elasticache
+```
+module "redis" {
+  source = "../"
+
+  security_group_ids           = [<existing security group name>]
+  account_id                   = "123456789012"
+  email                        = "demo@demo.com"
+  # ----------------------------------------------
+  # Note: Do not change teamid and prjid once set.
+  teamid = var.teamid
+  prjid  = var.prjid
+}
+```
+
+##### Elasticache with Security Group
 ```
 module "redis" {
   source = "../"
