@@ -63,7 +63,7 @@ variable "engine" {
   description = "Name of the cache engine to be used for this cache cluster. Valid values for this parameter are memcached or redis."
 }
 
-variable "profile_to_use" {
+variable "profile" {
   description = "Getting values from ~/.aws/credentials"
   default     = "default"
 }
