@@ -174,8 +174,8 @@ Please refer to examples directory [link](examples) for references.
 | <a name="input_cache_nodes"></a> [cache\_nodes](#input\_cache\_nodes) | The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcache, this value must be between 1 and 20. | `number` | `1` | no |
 | <a name="input_cluster_id"></a> [cluster\_id](#input\_cluster\_id) | Group identifier. ElastiCache converts this name to lowercase | `string` | `null` | no |
 | <a name="input_cluster_mode_enabled"></a> [cluster\_mode\_enabled](#input\_cluster\_mode\_enabled) | Flag to enable/disable creation of a native redis cluster. `automatic_failover_enabled` must be set to `true`. Only 1 `cluster_mode` block is allowed | `bool` | `false` | no |
-| <a name="input_deploy_redis"></a> [deploy\_redis](#input\_deploy\_redis) | feature flag, true or false | `bool` | `true` | no |
-| <a name="input_deploy_redis_parameter_group"></a> [deploy\_redis\_parameter\_group](#input\_deploy\_redis\_parameter\_group) | feature flag, true or false | `bool` | `true` | no |
+| <a name="input_deploy_redis"></a> [deploy\_redis](#input\_deploy\_redis) | Feature flag, true or false | `bool` | `true` | no |
+| <a name="input_deploy_redis_parameter_group"></a> [deploy\_redis\_parameter\_group](#input\_deploy\_redis\_parameter\_group) | Feature flag, true or false | `bool` | `true` | no |
 | <a name="input_engine"></a> [engine](#input\_engine) | Name of the cache engine to be used for this cache cluster. Valid values for this parameter are memcached or redis. | `string` | `"redis"` | no |
 | <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | Version of engine | `string` | `"5.0.6"` | no |
 | <a name="input_maintenance_window"></a> [maintenance\_window](#input\_maintenance\_window) | Specifies the weekly time range for when maintenance on the cache cluster is performed. | `string` | `"mon:10:30-mon:11:30"` | no |
