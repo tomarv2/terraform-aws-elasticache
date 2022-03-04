@@ -87,7 +87,7 @@ variable "az_mode" {
 }
 
 variable "deploy_redis" {
-  description = "feature flag, true or false"
+  description = "Feature flag, true or false"
   default     = true
   type        = bool
 }
@@ -99,7 +99,7 @@ variable "availability_zone" {
 }
 
 variable "deploy_redis_parameter_group" {
-  description = "feature flag, true or false"
+  description = "Feature flag, true or false"
   default     = true
   type        = bool
 }
