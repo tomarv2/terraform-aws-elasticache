@@ -4,7 +4,7 @@ output "elasticache_id" {
 }
 
 output "elasticache_cluster_address" {
-  value       = aws_elasticache_cluster.default.*.cluster_address
+  value       = aws_elasticache_cluster.default.*.cache_nodes.0.address
   description = "Elasticache Cluster address"
 }
 
