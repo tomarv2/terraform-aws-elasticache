@@ -1,14 +1,14 @@
-output "elasticache_id" {
-  value       = join("", aws_elasticache_cluster.default.*.id)
+output "cluster_id" {
+  value       = [for i in aws_elasticache_cluster.this : i.id]
   description = "Elasticache Id"
 }
 
-output "elasticache_cluster_address" {
-  value       = aws_elasticache_cluster.default.*.cache_nodes.0.address
+output "cluster_address" {
+  value       = [for i in aws_elasticache_cluster.this : i.cluster_address]
   description = "Elasticache Cluster address"
 }
 
-output "aws_elasticache_parameter_group" {
+output "parameter_group" {
   description = "Elasticache Parameter Group"
-  value       = join("", aws_elasticache_parameter_group.default.*.name)
+  value       = [for i in aws_elasticache_parameter_group.this : i.name]
 }
