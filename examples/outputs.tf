@@ -1,19 +1,19 @@
-output "elasticache_id" {
+output "cluster_id" {
+  value       = module.redis.cluster_id
   description = "Elasticache Id"
-  value       = module.redis.elasticache_id
 }
 
-output "elasticache_cluster_address" {
+output "cluster_address" {
+  value       = module.redis.cluster_address
   description = "Elasticache Cluster address"
-  value       = module.redis.elasticache_cluster_address
 }
 
-output "aws_elasticache_parameter_group" {
+output "parameter_group" {
   description = "Elasticache Parameter Group"
-  value       = module.redis.aws_elasticache_parameter_group
+  value       = module.redis.parameter_group
 }
 
 output "security_group_id" {
   description = "Security group Id"
-  value       = module.security_group.security_group_id
+  value       = module.security_group.id
 }
