@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 1.0.1"
   required_providers {
     aws = {
-      version = "~> 4.35"
+      version = "~> 4.61"
     }
   }
 }
@@ -29,7 +29,7 @@ module "redis" {
 }
 
 module "security_group" {
-  #source = "git::git@github.com:tomarv2/terraform-aws-security-group.git?ref=v0.0.12"
+  #source = "github.com/tomarv2/terraform-aws-security-group.git"
   source = "../../terraform-aws-security-group"
   config = {
     demo_redis = {

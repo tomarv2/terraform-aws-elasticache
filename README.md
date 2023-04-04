@@ -9,8 +9,8 @@
         <img src="https://img.shields.io/github/commit-activity/m/tomarv2/terraform-aws-elasticache" /></a>
     <a href="https://stackoverflow.com/users/6679867/tomarv2" alt="Stack Exchange reputation">
         <img src="https://img.shields.io/stackexchange/stackoverflow/r/6679867"></a>
-    <a href="https://twitter.com/intent/follow?screen_name=varuntomar2019" alt="follow on Twitter">
-        <img src="https://img.shields.io/twitter/follow/varuntomar2019?style=social&logo=twitter"></a>
+    <a href="https://twitter.com/intent/follow?screen_name=tomar_v2" alt="follow on Twitter">
+        <img src="https://img.shields.io/twitter/follow/tomar_v2?style=social&logo=twitter"></a>
 </p>
 
 ## Terraform module for [AWS Elasticache](https://registry.terraform.io/modules/tomarv2/elasticache/aws/latest)
@@ -104,19 +104,19 @@ Please refer to examples directory [link](examples) for references.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.35 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.61 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.35 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.61 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_global"></a> [global](#module\_global) | git::git@github.com:tomarv2/terraform-global.git//aws | v0.0.1 |
+| <a name="module_global"></a> [global](#module\_global) | github.com/tomarv2/terraform-global.git//aws | v0.0.1 |
 
 ## Resources
 
